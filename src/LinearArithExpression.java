@@ -37,7 +37,7 @@ public class LinearArithExpression {
 	
 	public void gen(int index, int[] limit, CallBack cb) {
 		gen_sum(index, limit, cb);
-		gen_minus(index, limit, cb);
+		//gen_minus(index, limit, cb);
 	}
 	
 	public void gen_minus(int index, int[] limit, CallBack cb) {
@@ -103,8 +103,10 @@ public class LinearArithExpression {
 			switch (arr[cursor.getIndex()]) {
 			case 3: cursor.addIndex(1);
 					result += evalTerm(cursor, end);
+					break;
 			case 4: cursor.addIndex(1);
 					result -= evalTerm(cursor, end);
+					break;
 			}
 		}
 		return result;
@@ -115,6 +117,7 @@ public class LinearArithExpression {
 		if (index >= end) { return 1; }
 		int term = read(index);
 		cursor.addIndex(2);
+		if (cursor.getIndex() >= end) { return term; }
 		while(arr[cursor.getIndex()] == 5) {
 			cursor.addIndex(1);
 			term *= evalTerm(cursor, end);

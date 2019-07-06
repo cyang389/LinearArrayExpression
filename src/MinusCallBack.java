@@ -11,7 +11,8 @@ public class MinusCallBack implements CallBack {
 		limit[1] = exp.getM() - 2;
 		limit[2] = limit[2] - 1;
 		exp.arr[index] = 4;
+		limit[0] = limit[3];
 		limit[3] = 0;
-		exp.gen(index + 1, limit, cb);
+		exp.gen_minus(index + 1, limit, cb);
 	}
 }
