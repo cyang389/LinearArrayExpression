@@ -13,6 +13,9 @@ public class SumCallBack implements CallBack {
 		exp.arr[index] = 3;
 		limit[0] = limit[3];
 		limit[3] = 0;
-		exp.gen(index + 1, limit, cb);
+		exp.gen_sum(index + 1, limit, cb);
+		exp.arr[index] = 4;
+		limit[0] = Integer.MAX_VALUE;
+		exp.gen_minus(index + 1, limit, cb);
 	}
 }

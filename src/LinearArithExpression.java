@@ -37,6 +37,7 @@ public class LinearArithExpression {
 	
 	public void gen(int index, int[] limit, CallBack cb) {
 		gen_sum(index, limit, cb);
+		//limit[0] = Integer.MAX_VALUE;
 		//gen_minus(index, limit, cb);
 	}
 	
