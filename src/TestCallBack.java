@@ -10,7 +10,7 @@ public class TestCallBack implements CallBack {
 		
 		System.out.print(Arrays.toString(exp.getExpression()));
 		System.out.println(" " + index 
-					+ " " + Arrays.toString(limit) 
+					//+ " " + Arrays.toString(limit) 
 					+ " " + exp.evaluate(index));
 		
 	}

@@ -24,7 +24,7 @@ public class LinearArithExpression {
 	
 	public void generate(int op_max) {
 		if (op_max == 0) { return; }
-		arr = new int[15];
+		arr = new int[3 * op_max + 2];
 		int[] limit = new int[4];
 		limit[0] = Integer.MAX_VALUE;
 		limit[1] = M - 2;
@@ -115,11 +115,12 @@ public class LinearArithExpression {
 	
 	public int evalTerm(Cursor cursor, int end) {
 		int index = cursor.getIndex();
-		if (index >= end) { return 1; }
+		//if (index >= end) { return 1; }
 		int term = read(index);
 		cursor.addIndex(2);
 		if (cursor.getIndex() >= end) { return term; }
-		while(arr[cursor.getIndex()] == 5) {
+		while(cursor.getIndex() < end 
+				&& arr[cursor.getIndex()] == 5) {
 			cursor.addIndex(1);
 			term *= evalTerm(cursor, end);
 		}
