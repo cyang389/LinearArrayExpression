@@ -31,16 +31,19 @@ public class LinearArithExpression {
 		limit[2] = op_max;
 		limit[3] = 0;
 		TestCallBack tcb = new TestCallBack();
-		gen_sum(0, limit, tcb);
+		gen(0, limit, tcb);
 		System.out.println(tcb.count);
 	}
 	
 	public void gen(int index, int[] limit, CallBack cb) {
 		gen_sum(index, limit, cb);
+		gen_minus(index, limit, cb);
 	}
 	
 	public void gen_minus(int index, int[] limit, CallBack cb) {
-		
+		gen_term(index, limit, cb);
+		if (limit[2] <= 0) { return; }
+		gen_term(index, limit, new MinusCallBack(cb));
 	}
 	
 	public void gen_sum(int index, int[] limit, CallBack cb) {
@@ -91,6 +94,42 @@ public class LinearArithExpression {
 	
 	public int getM() {
 		return M;
+	}
+	
+	public int evaluate(int end) {
+		Cursor cursor = new Cursor();
+		int result = evalTerm(cursor, end);
+		while(cursor.getIndex() < end) {
+			switch (arr[cursor.getIndex()]) {
+			case 3: cursor.addIndex(1);
+					result += evalTerm(cursor, end);
+			case 4: cursor.addIndex(1);
+					result -= evalTerm(cursor, end);
+			}
+		}
+		return result;
+	}
+	
+	public int evalTerm(Cursor cursor, int end) {
+		int index = cursor.getIndex();
+		if (index >= end) { return 1; }
+		int term = read(index);
+		cursor.addIndex(2);
+		while(arr[cursor.getIndex()] == 5) {
+			cursor.addIndex(1);
+			term *= evalTerm(cursor, end);
+		}
+		return term;
+	}
+	
+	public int read(int index) {
+		if (arr[index] == 1) {
+			return arr[index + 1];
+		} else if (arr[index] == 2) {
+			//TODO: this should be the variable value
+			return arr[index + 1];
+		}
+		return 0;
 	}
 	
 }
