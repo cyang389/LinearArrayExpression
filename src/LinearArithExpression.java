@@ -19,7 +19,7 @@ public class LinearArithExpression {
 		this.vars = vars;
 		cSize = consts.length;
 		vSize = vars.length;
-		M = cSize + vSize;
+		M = cSize + vSize + 1;
 	}
 	
 	public void generate(int op_max) {
@@ -27,7 +27,7 @@ public class LinearArithExpression {
 		arr = new int[15];
 		int[] limit = new int[4];
 		limit[0] = Integer.MAX_VALUE;
-		limit[1] = M - 1;
+		limit[1] = M - 2;
 		limit[2] = op_max;
 		limit[3] = 0;
 		TestCallBack tcb = new TestCallBack();
@@ -36,6 +36,10 @@ public class LinearArithExpression {
 	}
 	
 	public void gen(int index, int[] limit, CallBack cb) {
+		gen_sum(index, limit, cb);
+	}
+	
+	public void gen_minus(int index, int[] limit, CallBack cb) {
 		
 	}
 	
@@ -56,7 +60,7 @@ public class LinearArithExpression {
 	public void gen_unit(int index, int[] limit, CallBack cb) {
 		for (int i = 0; i <= Math.min(limit[1], cSize - 1); i++) {
 			int[] lim_cpy = copy(limit);
-			lim_cpy[3] = lim_cpy[3] * M + i;
+			lim_cpy[3] = lim_cpy[3] * M + i + 1;
 			if (lim_cpy[3] >= lim_cpy[0]) { return; }
 			arr[index] = 1;
 			arr[index + 1] = consts[i];
@@ -66,7 +70,7 @@ public class LinearArithExpression {
 		
 		for (int i = cSize; i <= limit[1]; i++) {
 			int[] lim_cpy = copy(limit);
-			lim_cpy[3] = lim_cpy[3] * M + i;
+			lim_cpy[3] = lim_cpy[3] * M + i + 1;
 			if (lim_cpy[3] >= lim_cpy[0]) { return; }
 			arr[index] = 2;
 			arr[index + 1] = vars[i - cSize];
