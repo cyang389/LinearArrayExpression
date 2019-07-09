@@ -1,13 +1,21 @@
+import java.util.*;
+
 public class Test {
 	
 	//static int[] arr = new int[] {1, 2, 5, 1, 3};
 	
 	public static void main(String[] args) {
 		
+		
 		LinearArithExpression exp = new LinearArithExpression(
-				new int[] {1, 2}, new int[] { -1, -2 }) ;
+				new int[] {1, 2}, new int[] { -1, -2, -3, -4, -5 }) ;
 		exp.generate(3);
+		
 		//System.out.println(evaluate(5));
+		
+		LinearLogicExpression bexp = new LinearLogicExpression(
+				new int[] {1}, new int[] { -1, -2, -3, -4, -5, -6, -7, -8}) ;
+		//bexp.generate();
 	}
 	
 	/*

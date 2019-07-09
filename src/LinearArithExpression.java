@@ -23,7 +23,7 @@ public class LinearArithExpression {
 	}
 	
 	public void generate(int op_max) {
-		if (op_max == 0) { return; }
+		//if (op_max == 0) { return; }
 		arr = new int[3 * op_max + 2];
 		int[] limit = new int[4];
 		limit[0] = Integer.MAX_VALUE;

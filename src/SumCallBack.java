@@ -18,4 +18,8 @@ public class SumCallBack implements CallBack {
 		limit[0] = Integer.MAX_VALUE;
 		exp.gen_minus(index + 1, limit, cb);
 	}
+	
+	public void call(int index, int limit, LinearLogicExpression exp) {
+		return;
+	}
 }

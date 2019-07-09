@@ -15,4 +15,8 @@ public class MinusCallBack implements CallBack {
 		limit[3] = 0;
 		exp.gen_minus(index + 1, limit, cb);
 	}
+	
+	public void call(int index, int limit, LinearLogicExpression exp) {
+		return;
+	}
 }
