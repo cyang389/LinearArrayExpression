@@ -21,8 +21,8 @@ public class TestCallBack implements CallBack {
 	public void call(int index, int limit, LinearLogicExpression exp) {
 		count_logic++;
 		cursor.setIndex(0);
-		//System.out.print(Arrays.toString(exp.getExpression()));
-		//System.out.println(" " + index + " " + exp.evaluate(cursor));
+		System.out.print(Arrays.toString(exp.getExpression()));
+		System.out.println(" " + index + " " + exp.evaluate(cursor));
 	}
 
 }
