@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Test {
 	
 	//static int[] arr = new int[] {1, 2, 5, 1, 3};

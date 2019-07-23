@@ -36,7 +36,6 @@ public class LinearLogicExpression {
 		gen_bool(1, Integer.MAX_VALUE, new LogicCallBack(tcb));
 		arr[0] = -2;
 		gen_bool(1, Integer.MAX_VALUE, new LogicCallBack(tcb));
-		System.out.println(tcb.count_logic);
 	}
 	
 	public void gen_bool(int index, int limit, CallBack cb) {

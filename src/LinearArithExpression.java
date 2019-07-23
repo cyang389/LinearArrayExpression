@@ -1,5 +1,4 @@
 import java.lang.Math;
-import java.util.Arrays;
 
 public class LinearArithExpression {
 	
@@ -32,7 +31,6 @@ public class LinearArithExpression {
 		limit[3] = 0;
 		TestCallBack tcb = new TestCallBack();
 		gen(0, limit, tcb);
-		System.out.println(tcb.count);
 	}
 	
 	public void gen(int index, int[] limit, CallBack cb) {
